@@ -6,6 +6,10 @@
     font-family: 'Mazius Review 20.09';
     src: url('https://abhishekjha.me/Mazius-Extraitalic.121a71a7.otf') format('opentype');
 }
+@font-face {
+    font-family: 'Gilroy';
+    src: url('https://abhishekjha.me/Gilroy-Medium.e7e7c091.ttf');
+}
 
 * {
     margin: 0;
