@@ -1,0 +1,480 @@
+@font-face {
+    font-family: 'Mazius Review 20.09';
+    src: url('https://abhishekjha.me/Mazius-Extraitalic.121a71a7.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('https://abhishekjha.me/Gilroy-Medium.e7e7c091.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Gilroy';
+    overflow-x: hidden;
+}
+
+.italic {
+    font-family: "Mazius Review 20.09";
+    font-weight: lighter;
+}
+
+.green {
+    color: #14cf92;
+}
+
+#main {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+#loader {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #161616;
+    color: #fff;
+    z-index: 200;
+}
+
+#loader #topheading {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    font-weight: lighter;
+}
+
+#topheading h5 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 300;
+}
+
+#loader h1 {
+    display: block;
+    width: 120%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 6vw;
+    font-weight: lighter;
+    overflow-x: hidden;
+}
+
+
+.reveal .parent .child .italic {
+    font-family: "Mazius Review 20.09";
+    color: #14cf92;
+}
+
+.reveal .parent .child span {
+    display: inline-block;
+    margin: 0 1vw;
+}
+
+.reveal .parent {
+    display: flex;
+    justify-content: center;
+    overflow-y: hidden;
+}
+
+.reveal .parent .child {
+    display: block;
+}
+
+
+#green {
+    width: 100%;
+    height: 0;
+    position: absolute;
+    bottom: 0;
+    background-color: #14cf92;
+}
+
+#home {
+    width: 100%;
+    height: 0;
+    position: absolute;
+    bottom: 0;
+    background-color: #fcfaf8;
+    overflow-y: scroll;
+}
+
+
+.navbar ul {
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    top: 0.5vh;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+}
+
+.navbar ul li a {
+    color: #383838;
+    text-decoration: none;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.hero {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    padding: 0 5vw;
+}
+
+.hero .left_part {
+    position: absolute;
+    top: 25vh;
+    font-size: 10.75vw;
+    left: 4vw;
+    color: #383838;
+    font-weight: light;
+}
+
+.hero .right_part {
+    position: absolute;
+    top: 48vh;
+    right: 4vw;
+    font-size: 10.75vw;
+    color: #383838;
+    font-weight: light;
+}
+
+.hero .middle_part {
+    font-family: "Mazius Review 20.09";
+    color: #14cf92;
+    position: absolute;
+    top: 48vh;
+    font-size: 10.75vw;
+    right: 56.5vw;
+    font-weight: lighter;
+}
+
+.revealUp .parentUp .childUp span {
+    display: inline-block;
+}
+
+.revealUp .parentUp {
+    display: flex;
+    justify-content: center;
+    overflow-y: hidden;
+}
+
+.revealUp .parentUp .childUp {
+    display: block;
+    /* position: absolute; */
+    bottom: 0%;
+    height: 0;
+}
+
+.scroll-arrow {
+    position: absolute;
+    top: 60vh;
+    left: 6.5vw;
+    transform: translate(-50%, 0%);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.light-text-part {
+    display: flex;
+    justify-content: space-between;
+    width: 29vw;
+    position: absolute;
+    top: 29vh;
+    right: 10vh;
+}
+
+.light-text {
+    color: #A2A2A2;
+    font-size: 0.75rem;
+    width: 11vw;
+}
+
+.techs {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0vh;
+    right: 4vw;
+}
+
+.tech {
+    height: 5vw;
+    width: 5vw;
+}
+
+.mouse_svg {
+    position: absolute;
+    top: 45vh;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+
+
+
+/* spinner css */
+@keyframes loader_5191 {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.square {
+    background: #ddd;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    margin-top: -5px;
+    margin-left: -5px;
+}
+
+#sq1 {
+    margin-top: -25px;
+    margin-left: -25px;
+    animation: loader_5191 675ms ease-in-out 0s infinite alternate;
+}
+
+#sq2 {
+    margin-top: -25px;
+    animation: loader_5191 675ms ease-in-out 75ms infinite alternate;
+}
+
+#sq3 {
+    margin-top: -25px;
+    margin-left: 15px;
+    animation: loader_5191 675ms ease-in-out 150ms infinite;
+}
+
+#sq4 {
+    margin-left: -25px;
+    animation: loader_5191 675ms ease-in-out 225ms infinite;
+}
+
+#sq5 {
+    animation: loader_5191 675ms ease-in-out 300ms infinite;
+}
+
+#sq6 {
+    margin-left: 15px;
+    animation: loader_5191 675ms ease-in-out 375ms infinite;
+}
+
+#sq7 {
+    margin-top: 15px;
+    margin-left: -25px;
+    animation: loader_5191 675ms ease-in-out 450ms infinite;
+}
+
+#sq8 {
+    margin-top: 15px;
+    animation: loader_5191 675ms ease-in-out 525ms infinite;
+}
+
+#sq9 {
+    margin-top: 15px;
+    margin-left: 15px;
+    animation: loader_5191 675ms ease-in-out 600ms infinite;
+}
+
+/* spinner css end */
+
+/* navbar css */
+.content__item {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    counter-increment: itemcounter;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.link {
+    cursor: pointer;
+    font-size: 18px;
+    position: relative;
+    white-space: nowrap;
+    color: var(--color-text);
+}
+
+.link--iocaste {
+    font-family: lust-fine, sans-serif;
+    overflow: hidden;
+    padding: 7px 0;
+}
+
+.link__graphic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    fill: none;
+    stroke: #000;
+    stroke-width: 1px;
+}
+
+.link__graphic--slide {
+    top: -3px;
+    stroke-width: 2px;
+    transition: transform 0.7s;
+    transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+}
+
+.link:hover .link__graphic--slide {
+    transform: translate3d(-66.6%, 0, 0);
+}
+
+/* navbar css end */
+
+/* cursor animations */
+
+@keyframes scroll {
+    0% {
+        transform: translateY(0);
+    }
+
+    30% {
+        transform: translateY(60px);
+    }
+}
+
+svg #wheel {
+    animation: scroll ease 2s infinite;
+}
+
+:root {
+    --text-color: #111;
+    --bg-color: #b9b3a9;
+}
+
+
+.container {
+    section:not(#sectionPin) {
+        min-height: 100vh;
+        width: 100%;
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-gap: 2rem;
+        padding: 50px 10vw;
+        margin: auto;
+        place-items: center;
+    }
+
+
+    img {
+        height: 70vh;
+        width: auto;
+        object-fit: contain;
+    }
+
+    // h1 {
+    //     font-size: 5rem;
+    //     line-height: 1;
+    //     font-weight: 800;
+    //     margin-bottom: 1rem;
+    //     position: absolute;
+    //     top: 10vw;
+    //     left: 10vw;
+    //     z-index: 4;
+    //     overflow-wrap: break-word;
+    //     hyphens: auto;
+
+    //     @media (max-width: 768px) {
+    //         font-size: 16vw;
+    //     }
+
+    //     span {
+    //         display: block;
+    //     }
+    // }
+    h1 {
+        font-size: 3vw;
+        max-width: 400px;
+    }
+
+    h2 {
+        font-size: 2rem;
+        max-width: 400px;
+    }
+
+    .credit {
+
+        a {
+            color: var(--text-color);
+        }
+    }
+
+    // * {
+    //   box-sizing: border-box;
+    // }
+
+    #sectionPin {
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        left: 0;
+        background: var(--text-color);
+        color: #fcfaf8;
+    }
+
+    .pin-wrap {
+        height: 100vh;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 50px 10vw;
+
+        &>* {
+            min-width: 60vw;
+            padding: 0 5vw;
+        }
+    }
+
+    p {
+        position: absolute;
+        bottom: 10vw;
+        right: 10vw;
+        width: 200px;
+        line-height: 1.5;
+    }
+
+    .footer {
+        background-color: var(--bg-color);
+    }
+
+}
