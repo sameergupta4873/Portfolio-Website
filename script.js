@@ -1,4 +1,60 @@
+var magnets = document.querySelectorAll('.magnetic')
+var strength = 50
 
+magnets.forEach( (magnet) => {
+  magnet.addEventListener('mousemove', moveMagnet );
+  magnet.addEventListener('mouseout', function(event) {
+    TweenMax.to( event.currentTarget, 1, {x: 0, y: 0, ease: Power4.easeOut})
+  } );
+});
+
+function moveMagnet(event) {
+  var magnetButton = event.currentTarget
+  var bounding = magnetButton.getBoundingClientRect()
+
+  //console.log(magnetButton, bounding)
+
+  TweenMax.to( magnetButton, 1, {
+    x: ((( event.clientX - bounding.left)/magnetButton.offsetWidth) - 0.5) * strength,
+    y: ((( event.clientY - bounding.top)/magnetButton.offsetHeight) - 0.5) * strength,
+    ease: Power4.easeOut
+  })
+
+  //magnetButton.style.transform = 'translate(' + (((( event.clientX - bounding.left)/(magnetButton.offsetWidth))) - 0.5) * strength + 'px,'+ (((( event.clientY - bounding.top)/(magnetButton.offsetHeight))) - 0.5) * strength + 'px)';
+}
+
+
+const sliderContainer = document.querySelector('.slider-container')
+const slideRight = document.querySelector('.right-slide')
+const slideLeft = document.querySelector('.left-slide')
+const upButton = document.querySelector('.up-button')
+const downButton = document.querySelector('.down-button')
+const slidesLength = slideRight.querySelectorAll('div').length
+
+let activeSlideIndex = 0
+
+slideLeft.style.top = `-${(slidesLength - 1) * 100}vh`
+
+upButton.addEventListener('click', () => changeSlide('up'))
+downButton.addEventListener('click', () => changeSlide('down'))
+
+const changeSlide = (direction) => {
+    const sliderHeight = sliderContainer.clientHeight
+    if(direction === 'up') {
+        activeSlideIndex++
+        if(activeSlideIndex > slidesLength - 1) {
+            activeSlideIndex = 0
+        }
+    } else if(direction === 'down') {
+        activeSlideIndex--
+        if(activeSlideIndex < 0) {
+            activeSlideIndex = slidesLength - 1
+        }
+    }
+
+    slideRight.style.transform = `translateY(-${activeSlideIndex * sliderHeight}px)`
+    slideLeft.style.transform = `translateY(${activeSlideIndex * sliderHeight}px)`
+}
 
 //  ijsabuhbugzxsubsa
 document.querySelectorAll(".reveal").forEach(function (elem) {
@@ -70,6 +126,8 @@ tl
         duration: 0.75,
         ease: Expo.easeInOut
     })
+
+    
 // gsap end
 gsap.registerPlugin(ScrollTrigger);
 
@@ -129,3 +187,5 @@ window.addEventListener("load", function () {
 
   ScrollTrigger.refresh();
 });
+
+//
