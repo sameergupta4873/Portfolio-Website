@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* :root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}  */
+
+
+
+
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+
+@font-face {
+  font-family: Gilroy;
+  src: url("/fonts/Gilroy-Light.otf");
+  -webkit-font-smoothing: antialiased;
+}
+
+.gilroy {
+  font-family: Gilroy, cursive;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+.privacy-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  z-index: 2;
+}
+
+.go-down-btn {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+
+  svg {
+    position: relative;
+    z-index: -1;
+    display: block;
+  }
+
+  text {
+    font-size: 11px;
+    transform-origin: center;
+  }
+}
+
+@keyframes rotate-btn{
+  to{ transform: rotate(360deg); }
+}
+.go-down-btn text{
+  animation: rotate-btn 10s linear infinite;
+}
