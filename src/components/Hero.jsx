@@ -2,32 +2,50 @@ import Image from "next/image";
 import React from "react";
 import AnimatedTitle from "./AnimatedText";
 import styled from "styled-components";
+import Link from "next/link";
 
 const Title = styled.h2`
   font-size: 3rem;
   font-weight: 400;
   font-family: "Gilroy", sans-serif;
+  @media (max-width: 768px) {
+    font-size: 1.75rem;
+  }
 `;
 
 const Hero = () => {
   return (
-    <div className="w-full h-[80vh] mt-[4rem] relative bg-[#070707]">
+    <div className="w-full h-[80vh] mt-[4rem] relative bg-[#070707] max-md:mt-[2rem] max-md:h-[90vh]">
       <Image
         src="/hero1.png"
         alt="alt text"
-        className="absolute bottom-0 left-0"
+        className="absolute bottom-0 left-0 max-md:hidden"
+        width={500}
+        height={500}
+      />
+      <Image
+        src="/hero1.png"
+        alt="alt text"
+        className="absolute bottom-0 left-0 md:hidden"
+        width={200}
+        height={200}
+      />
+      <Image
+        src="/hero2.png"
+        alt="alt text"
+        className="absolute bottom-0 right-0 max-md:hidden"
         width={500}
         height={500}
       />
       <Image
         src="/hero2.png"
         alt="alt text"
-        className="absolute bottom-0 right-0"
-        width={500}
-        height={500}
+        className="absolute bottom-0 right-0 md:hidden"
+        width={200}
+        height={200}
       />
-      <div className="absolute top-10 left-0 w-[100vw] flex justify-center">
-        <div className="text-center w-[12.5vw]">
+      <div className="absolute top-10 left-0 w-[100vw] flex justify-center max-md:top-0 max-md:flex-col max-md:items-center">
+        <div className="text-center max-md:scale-50 max-md:mt-[0rem]">
           <a href="#" className="go-down-btn" title="Scroll down">
             <svg
               version="1.1"
@@ -66,13 +84,13 @@ const Hero = () => {
             </svg>
           </a>
         </div>
-        <div className="text-center flex flex-col items-center w-[60vw] transition-all ease-in-out duration-300">
+        <div className="text-center flex flex-col items-center w-[60vw] transition-all ease-in-out duration-300 max-md:w-[90vw]">
           <AnimatedTitle text="<Full-stack Developer>" Title={Title} />
           <AnimatedTitle text="<Freelancer>" Title={Title} />
           <AnimatedTitle text="<Sameer Gupta />" Title={Title} />
           <AnimatedTitle text="<Freelancer/>" Title={Title} />
           <AnimatedTitle text="<Full-stack Developer/>" Title={Title} />
-          <button className="border border-[#323240] rounded-full flex justify-between min-h-[4rem] mt-10 transition-all ease-in-out duration-300 group">
+          <Link href="/about" className="border border-[#323240] rounded-full flex justify-between min-h-[4rem] mt-10 transition-all ease-in-out duration-300 group max-md:scale-75">
             <h2 className="gilroy text-[1rem] py-[1.15rem] pl-[2.5rem] pr-[3.5rem] opacity-65">
               Explore
             </h2>
@@ -95,7 +113,7 @@ const Hero = () => {
                 />
               </svg>
             </div>
-          </button>
+          </Link>
         </div>
         <div className="text-center w-[12.5vw]">
           {/* <AnimatedTitle text="<Full-stack Developer>" Title={Title} /> */}

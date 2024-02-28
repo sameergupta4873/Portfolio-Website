@@ -9,18 +9,27 @@ const Title = styled.h2`
   font-size: 1.75rem;
   font-weight: 500;
   font-family: "Gilroy", sans-serif;
+  @media (max-width: 768px) {
+    font-size: 1.25rem;
+  }
 `;
 
 const subTitle = styled.h2`
   font-size: 1rem;
   font-weight: 300;
   font-family: "Gilroy", sans-serif;
+  @media (max-width: 768px) {
+    font-size: 0.75rem;
+  }
 `;
 
 const expTitle = styled.h1`
   font-size: 1.25rem;
   font-weight: 500;
   font-family: "Gilroy", sans-serif;
+  @media (max-width: 768px) {
+    font-size: 0.75rem;
+  }
 `;
 
 const expPoints = styled.h1`
@@ -65,9 +74,9 @@ const expData = [
 const About = () => {
   const isPresent = useIsPresent();
   return (
-    <div className="">
+    <div className="min-w-[100vw]">
       <Navbar activeProp={"About"} />
-      <div className="w-full mt-20 px-[20rem]">
+      <div className="w-full mt-20 px-[20rem] max-md:px-[1.5rem] max-md:mt-10">
         <div className="w-full">
           <div className="w-full">
             <div className="flex">
@@ -77,7 +86,7 @@ const About = () => {
                   alt="about"
                   width={60}
                   height={60}
-                  className="rounded-full"
+                  className="rounded-full object-cover max-md:w-[45px] max-md:h-[45px]"
                 />
               </div>
               <div className="flex flex-col">
@@ -107,7 +116,7 @@ const About = () => {
                 >
                   {exp.desc.map((desc, index) => {
                     return (
-                      <li key={index} className="opacity-65 mb-2">
+                      <li key={index} className="opacity-65 mb-2 max-md:text-[0.75rem]">
                         {desc}
                       </li>
                     );

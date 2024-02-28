@@ -49,22 +49,22 @@ const Projects = () => {
   return (
     <div>
       <Navbar activeProp={"Projects"} />
-      <div className="w-full mt-20 px-[17rem] h-[100vh]">
-        <div className="w-full h-full flex flex-wrap justify-between">
+      <div className="w-full mt-20 h-full max-md:px-[1.75rem] max-md:mt-[5rem]">
+        <div className="w-full h-full flex flex-wrap justify-center gap-x-20 max-md:flex-col max-md:flex-nowrap">
           {data.map((project, index) => {
             return (
-              <CardContainer key={index} className="inter-var mt-[-3.5rem]">
-                <CardBody className="bg-white relative group/card border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border">
+              <CardContainer key={index} className="inter-var mt-[-3.5rem] max-md:mt-[-7rem]">
+                <CardBody className="bg-white relative group/card border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border max-md:p-4">
                   <CardItem
                     translateZ="50"
-                    className="text-xl font-bold text-black"
+                    className="text-xl font-bold text-black max-md:text-[1rem]"
                   >
                     {project.title}
                   </CardItem>
                   <CardItem
                     as="p"
                     translateZ="60"
-                    className="text-neutral-500 text-sm max-w-sm mt-2"
+                    className="text-neutral-500 text-sm max-w-sm mt-2 max-md:text-xs max-md:mt-1"
                   >
                     {project.desc}
                   </CardItem>
@@ -75,7 +75,7 @@ const Projects = () => {
                             src={project.cover}
                             height="1000"
                             width="1000"
-                            className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                            className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl max-md:h-[10.5rem] max-md:rounded-md shadow-2xl"
                             alt="thumbnail"
                             />
                         ) : (
@@ -83,17 +83,17 @@ const Projects = () => {
                             src={project.cover}
                             height="500"
                             width="250"
-                            className="h-60 max-w-[7rem] object-cover rounded-2xl group-hover/card:shadow-xl"
+                            className="h-60 max-w-[7rem] object-cover rounded-2xl group-hover/card:shadow-xl max-md:mx-[6rem]"
                             alt="thumbnail"
                             />
                         )
                     }
                   </CardItem>
-                  <div className="flex justify-between items-center mt-10">
+                  <div className="flex justify-between items-center mt-10 max-md:mt-7">
                     <CardItem
                       translateZ={20}
                       as="button"
-                      className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+                      className="px-4 py-2 rounded-xl bg-black text-white text-xs font-bold"
                     >
                       View Project
                     </CardItem>
