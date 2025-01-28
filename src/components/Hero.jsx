@@ -19,7 +19,14 @@ const Hero = () => {
       <Image
         src="/hero1.png"
         alt="alt text"
-        className="absolute bottom-0 left-0 max-md:hidden"
+        className="absolute bottom-0 left-0 w-[30vw] max-md:hidden"
+        width={500}
+        height={500}
+      />
+      <Image
+        src="/hero2.png"
+        alt="alt text"
+        className="absolute bottom-0 right-0 w-[30vw] max-md:hidden"
         width={500}
         height={500}
       />
@@ -29,13 +36,6 @@ const Hero = () => {
         className="absolute bottom-0 left-0 md:hidden"
         width={200}
         height={200}
-      />
-      <Image
-        src="/hero2.png"
-        alt="alt text"
-        className="absolute bottom-0 right-0 max-md:hidden"
-        width={500}
-        height={500}
       />
       <Image
         src="/hero2.png"
