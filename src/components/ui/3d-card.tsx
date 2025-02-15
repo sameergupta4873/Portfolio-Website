@@ -18,10 +18,12 @@ export const CardContainer = ({
   children,
   className,
   containerClassName,
+  enable
 }: {
   children?: React.ReactNode;
   className?: string;
   containerClassName?: string;
+  enable: boolean;
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMouseEntered, setIsMouseEntered] = useState(false);
@@ -45,6 +47,13 @@ export const CardContainer = ({
     setIsMouseEntered(false);
     containerRef.current.style.transform = `rotateY(0deg) rotateX(0deg)`;
   };
+
+  useEffect(() => {
+    if(!enable){
+      containerRef.current.style.transform = `rotateY(0deg) rotateX(0deg)`;
+    }
+  }, [enable])
+
   return (
     <MouseEnterContext.Provider value={[isMouseEntered, setIsMouseEntered]}>
       <div
@@ -59,14 +68,14 @@ export const CardContainer = ({
         <div
           ref={containerRef}
           onMouseEnter={handleMouseEnter}
-          onMouseMove={handleMouseMove}
+          onMouseMove={enable ? handleMouseMove : null}
           onMouseLeave={handleMouseLeave}
           className={cn(
             "flex items-center justify-center relative transition-all duration-200 ease-linear",
             className
           )}
           style={{
-            transformStyle: "preserve-3d",
+            transformStyle: enable ? "preserve-3d" : "",
           }}
         >
           {children}
