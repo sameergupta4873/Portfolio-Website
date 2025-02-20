@@ -1,9 +1,10 @@
 "use client";
 import Navbar from "@/components/Navbar";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { CardBody, CardContainer, CardItem } from "../components/ui/3d-card";
 import { motion, useIsPresent } from "framer-motion";
+import { MarkdownViewer } from 'react-github-markdown';
 
 const data = [
   {
@@ -11,41 +12,54 @@ const data = [
     desc: "A platform for South Asian matchmaking",
     cover: "/projects/ishaare/cover.png",
     type: "web",
+    readme:
+      "https://raw.githubusercontent.com/sameergupta4873/Portfolio-Website/refs/heads/master/README.md",
   },
   {
     title: "OTT Platform",
     desc: "Online streaming platform for movies and web series",
     cover: "/projects/ott/cover.png",
     type: "web",
+    readme:
+      "https://raw.githubusercontent.com/sameergupta4873/ott-frontend/refs/heads/master/README.md",
   },
   {
     title: "Solana Faucet",
     desc: "DApp on Solana Blockchain to airdrop crypto",
     cover: "/projects/faucet/cover.png",
     type: "web",
+    readme:
+      "https://raw.githubusercontent.com/sameergupta4873/Solana-Faucet/refs/heads/main/README.md",
   },
   {
     title: "No Code Deep Learning",
     desc: "A platform to create deep learning models without code",
     cover: "/projects/nocode/cover.png",
     type: "web",
+    readme:
+      "https://raw.githubusercontent.com/sameergupta4873/no-code-DL/refs/heads/master/Readme.md",
   },
   {
     title: "NFT Marketplace",
     desc: "frontend for a marketplace to buy and sell NFTs",
     cover: "/projects/nft/cover.png",
     type: "web",
+    readme:
+      "https://raw.githubusercontent.com/sameergupta4873/NP_NFT/refs/heads/master/README.md",
   },
   {
     title: "Perceptron",
     desc: "A platform to analyze sentiment of a social media post",
     cover: "/projects/perceptron/cover.png",
     type: "web",
+    readme:
+      "https://raw.githubusercontent.com/sameergupta4873/perceptron/refs/heads/main/README.md?token=GHSAT0AAAAAAC67V7T6TVI6W45URI3NOLKMZ5QLJ3Q",
   },
 ];
 
 const Projects = () => {
   const [projectId, setProjectId] = useState(-1);
+  const [readme, setReadme] = useState("");
 
   const isPresent = useIsPresent();
   const handleProjectSelect = (index) => {
@@ -55,13 +69,27 @@ const Projects = () => {
       setProjectId(index);
     }
   };
+
+  const getReadme = async (projectId) => {
+    const res = await fetch(data?.[projectId]?.readme);
+    const result = await res.text();
+    console.log(result);
+    setReadme(result);
+  };
+
+  useEffect(() => {
+    if (projectId !== -1) {
+      getReadme(projectId);
+    }
+  }, [projectId]);
+
   return (
-    <div>
+    <div className="relative">
       <Navbar activeProp={"Projects"} />
       {projectId !== -1 && (
         <button
           onClick={() => handleProjectSelect(projectId)}
-          className="flex justify-end z-10 fixed top-[15vh] left-[50vw] translate-x-[-50%] bg-[#232323] p-4 rounded-full"
+          className="flex justify-end z-10 fixed top-[2rem] right-[0vw] translate-x-[-50%] bg-[#232323] p-4 rounded-full scale-90"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -98,9 +126,11 @@ const Projects = () => {
                   }
                 >
                   <CardBody
-                    className={`bg-white relative group/card border-black/[0.1] rounded-xl border max-md:p-4 transition-all duration-1000 ease-in-out ${
+                    className={`bg-white group/card border-black/[0.1] rounded-xl border max-md:p-4 transition-all duration-1000 ease-in-out ${
                       index === projectId
-                        ? "w-[90rem] h-auto pt-6 pl-6"
+                        ? `w-[99vw] h-[99vh] absolute ${
+                            index === 0 ? "top-[-15rem]" : "top-[-25rem]"
+                          } pt-6 pl-6`
                         : projectId === -1
                         ? "w-auto sm:w-[30rem] h-auto p-6"
                         : "hidden"
@@ -121,7 +151,7 @@ const Projects = () => {
                     </CardItem>
                     <CardItem
                       translateZ="100"
-                      className={`w-full relative mt-4 flex ${
+                      className={`w-full mt-4 flex ${
                         projectId === -1 ? "justify-center" : "space-between"
                       }`}
                     >
@@ -136,7 +166,7 @@ const Projects = () => {
                           />
                         ) : (
                           <div className="flex flex-row justify-center items-center scale-[80%] ml-[-10rem] mt-[-3rem] w-[165rem]">
-                            <div className="absolute h-[88%] w-[71%] bg-black rounded-t-xl py-4">
+                            <div className="absolute h-[80%] w-[71%] bg-black rounded-t-xl py-4">
                               <Image
                                 src={project.cover}
                                 height="500"
@@ -157,93 +187,14 @@ const Projects = () => {
                         <Image
                           src={project.cover}
                           height="500"
-                          width="250"
-                          className="h-60 max-w-[7rem] object-cover rounded-2xl group-hover/card:shadow-xl max-md:mx-[6rem]"
+                          width="500"
+                          className="h-[17rem] max-w-[7rem] object-cover rounded-2xl group-hover/card:shadow-xl max-md:mx-[6rem]"
                           alt="thumbnail"
                         />
                       )}
                       {projectId !== -1 && (
-                        <div className="h-[72vh] w-full ml-[-10rem] p-6 text-black overflow-y-auto">
-                          <p class="mb-4">
-                            I am pleased to present my recent project involving
-                            the development of an OTT (Over-the-Top) platform,
-                            which I completed on Upwork. This project aimed to
-                            create a comprehensive and user-friendly streaming
-                            platform to deliver digital content directly to
-                            consumers.
-                          </p>
-
-                          <h2 class="text-2xl font-semibold mt-6">My Role</h2>
-                          <p class="mb-4">
-                            As the project owner, my role was to oversee the
-                            end-to-end development process, from
-                            conceptualization to deployment. Leveraging my
-                            expertise in web development and streaming
-                            technologies, I successfully designed and
-                            implemented a cutting-edge OTT platform that
-                            provided an immersive and seamless streaming
-                            experience.
-                          </p>
-
-                          <h2 class="text-2xl font-semibold mt-6">
-                            Key Features
-                          </h2>
-                          <ul class="list-disc ml-6 space-y-2">
-                            <li>
-                              <strong>Content Management:</strong> Implemented a
-                              robust CMS to organize and manage a vast library
-                              of videos, audios, and digital content
-                              efficiently.
-                            </li>
-                            <li>
-                              <strong>
-                                User Registration and Authentication:
-                              </strong>{" "}
-                              Integrated a secure system for users to create
-                              accounts, login, and manage profiles.
-                            </li>
-                            <li>
-                              <strong>
-                                Content Discovery and Recommendation:
-                              </strong>{" "}
-                              Incorporated advanced algorithms to personalize
-                              recommendations based on user preferences and
-                              viewing history.
-                            </li>
-                            <li>
-                              <strong>Streaming Infrastructure:</strong>{" "}
-                              Developed a scalable and reliable streaming
-                              infrastructure for smooth playback across multiple
-                              devices.
-                            </li>
-                            <li>
-                              <strong>Monetization Options:</strong> Integrated
-                              subscription-based models, pay-per-view, and
-                              advertising for flexible revenue generation.
-                            </li>
-                          </ul>
-
-                          <h2 class="text-2xl font-semibold mt-6">
-                            Project Execution
-                          </h2>
-                          <p class="mb-4">
-                            Throughout the project, I maintained open
-                            communication with the client, regularly providing
-                            updates, incorporating feedback, and addressing any
-                            concerns. I followed agile methodologies to ensure
-                            timely delivery and adaptability to evolving
-                            requirements.
-                          </p>
-
-                          <h2 class="text-2xl font-semibold mt-6">
-                            Conclusion
-                          </h2>
-                          <p class="mb-4">
-                            The completed OTT platform has empowered the client
-                            to reach a wider audience, monetize their content
-                            effectively, and establish a strong brand presence
-                            in the digital streaming industry.
-                          </p>
+                        <div className="h-[85vh] w-full ml-[-10rem] p-6 text-black overflow-y-auto text-left">
+                           <MarkdownViewer value={readme}/>
                         </div>
                       )}
                     </CardItem>

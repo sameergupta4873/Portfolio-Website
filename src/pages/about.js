@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion, useIsPresent } from "framer-motion";
 import Image from "next/image";
 import styled from "styled-components";
@@ -38,41 +38,21 @@ const expPoints = styled.h1`
   font-family: "Gilroy", sans-serif;
 `;
 
-const expData = [
-  {
-    title: "Lead Frontend Developer",
-    company: "Ishaare.com",
-    url: "https://www.ishaare.com",
-    date: "Jul 2023 - Jan 2024",
-    desc: [
-      "Optimized frontend performance by Image Optimization and Caching, resulting in a 20% reduction in Page load times and an improved overall user experience.",
-      "Developed a feature to allow user to upload images from another device in realtime using Socket.IO."
-    ],
-  },
-  {
-    title: "Backend Developer",
-    company: "Eveez Pvt. Ltd.",
-    url: "https://www.eveez.in/",
-    date: "May 2023 - Jul 2023",
-    desc: [
-      "Improved invoicing procedures by leveraging Zoho CRM automation, leading to heightened accuracy and efficiency and a 7% rise in engagement and conversions.",
-      "Integrated AI analytics into the loyalty program, scrutinizing customer behaviors for targeted voucher Allocation and driving a 15% rise in retention over 7 months."
-    ],
-  },
-  {
-    title: "Web Developer Intern",
-    company: "Strall Pvt. Ltd.",
-    url: "#",
-    date: "Jun 2022 - Feb 2023",
-    desc: [
-      "Assisted the development team in bug fixing, testing, and maintaining full-stack e-commerce platform. ",
-      "Managed the smooth integration of external services like Razorpay SDK, resulting in a significant 15% increase in sales performance."
-    ],
-  },
-];
-
 const About = () => {
   const isPresent = useIsPresent();
+  const [expData, setExpData] = useState([]);
+
+  const getExp = async () => {
+    const res = await fetch("https://gist.githubusercontent.com/sameergupta4873/933ed865b8e33b6c983cdce43a7a565d/raw/da4063eecbd566f5d1fd27e935abdc896e3599f8/experience.json");
+    const result = await res.json();
+    console.log(result);
+    setExpData(result)
+  }
+
+  useEffect(() => {
+    getExp();
+  }, []);
+
   return (
     <div className="min-w-[100vw]">
       <Navbar activeProp={"About"} />
